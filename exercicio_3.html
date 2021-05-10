@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Métodos Vue</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      Valor A <br />
+      <input v-model.number="valorA" type="number" step="1" />
+      <br />
+      Valor B <br />
+      <input v-model.number="valorB" type="number" step="1" />
+      <br />
+      <h1>{{ soma() }}</h1>
+    </div>
+    <script type="text/javascript">
+      new Vue({
+        el: "#app",
+        data: {
+          valorA: 0,
+          valorB: 0,
+        },
+        methods: {
+          soma: function () {
+            return "A+B é:" + (this.valorA + this.valorB);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

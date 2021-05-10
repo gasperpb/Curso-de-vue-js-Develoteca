@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Métodos Vue</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>jogador 1: {{jogador1}}</h2>
+      <h2>jogador 2: {{jogador2}}</h2>
+      <h1>{{ganhador}}</h1>
+      <input type="button" v-on:click="jogar" value="jogar" />
+    </div>
+    <script type="text/javascript">
+      new Vue({
+        el: "#app",
+        data: {
+          jogador1: 0,
+          jogador2: 0,
+          ganhador: "--",
+        },
+        methods: {
+          jogar: function (event) {
+            this.jogador1 = Math.round(Math.random() * 100);
+            this.jogador2 = Math.round(Math.random() * 100);
+            var mensagem = "Foi empate";
+            if (this.jogador1 > this.jogador2) {
+              mensagem = " O vencedor é o jogador 1";
+            } else if (this.jogador2 > this.jogador1) {
+              mensagem = " O vencedor é o jogador 2";
+            }
+            this.ganhador = mensagem;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
